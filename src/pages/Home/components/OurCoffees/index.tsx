@@ -9,6 +9,7 @@ export function OurCoffees() {
       <TitleText size="l" color="subtitle">
         Nossos cafés
       </TitleText>
+
       <CoffeeList>
         {coffees.map((coffee) => (
           <CoffeeCard key={coffee.id} coffee={coffee} />

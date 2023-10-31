@@ -5,6 +5,7 @@ export const CoffeeCartCardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   border-bottom: 1px solid ${({ theme }) => theme.colors['base-button']};
   padding-bottom: 1.5rem;
   margin-bottom: 1.5rem;
@@ -19,9 +20,10 @@ export const CoffeeCartCardContainer = styled.div`
       height: 4rem;
     }
   }
+
   > p {
-    font-weight: 700;
     align-self: flex-start;
+    font-weight: 700;
   }
 `
 
@@ -51,11 +53,11 @@ export const RemoveButton = styled.button`
   border-radius: 6px;
   transition: 0.4s;
 
-  &:hover {
-    background: ${({ theme }) => theme.colors['base-hover']};
-  }
-
   svg {
     color: ${({ theme }) => theme.colors['brand-purple']};
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors['base-hover']};
   }
 `

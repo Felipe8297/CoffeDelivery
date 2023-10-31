@@ -1,7 +1,7 @@
-import { css, styled } from 'styled-components'
+import styled, { css } from 'styled-components'
 
-interface QuantityInputContainerProps {
-  size?: 'small' | 'medium'
+export interface QuantityInputContainerProps {
+  size: 'medium' | 'small'
 }
 
 export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
@@ -12,8 +12,6 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
   justify-content: space-between;
   gap: 4px;
   border-radius: 6px;
-
-  padding: 0.5rem;
 
   input {
     text-align: center;
@@ -41,7 +39,7 @@ export const QuantityInputContainer = styled.div<QuantityInputContainerProps>`
 `
 
 export const IconWrapper = styled.button.attrs({
-  title: 'button',
+  type: 'button',
 })`
   width: 0.875rem;
   height: 0.875rem;

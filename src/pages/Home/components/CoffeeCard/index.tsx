@@ -1,17 +1,17 @@
+import { QuantityInput } from '../../../../components/QuantityInput'
+import { RegularText, TitleText } from '../../../../components/Typography'
 import {
   CoffeeCardContainer,
-  Description,
-  Name,
   Tags,
-  AddCartWrapper,
+  Name,
+  Description,
   CardFooter,
+  AddCartWrapper,
 } from './styles'
 import { ShoppingCart } from 'phosphor-react'
-import { RegularText, TitleText } from '../../../../components/Typography'
-import { QuantityInput } from '../../../../components/QuantityInput'
-import { formatMoney } from '../../../../utils/formatMoney'
-import { useCart } from '../../../../hooks/useCart'
 import { useState } from 'react'
+import { useCart } from '../../../../hooks/useCart'
+import { formatMoney } from '../../../../utils/formatMoney'
 
 export interface Coffee {
   id: number
@@ -29,14 +29,15 @@ interface CoffeeProps {
 export function CoffeeCard({ coffee }: CoffeeProps) {
   const [quantity, setQuantity] = useState(1)
 
-  const { addCoffeeToCart } = useCart()
-
   function handleIncrease() {
     setQuantity((state) => state + 1)
   }
+
   function handleDecrease() {
     setQuantity((state) => state - 1)
   }
+
+  const { addCoffeeToCart } = useCart()
 
   function handleAddToCart() {
     const coffeeToAdd = {
@@ -50,7 +51,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
 
   return (
     <CoffeeCardContainer>
-      <img src={`/coffees/${coffee.photo}`} alt="" />
+      <img src={`/coffees/${coffee.photo}`} />
       <Tags>
         {coffee.tags.map((tag) => (
           <span key={`${coffee.id}${tag}`}>{tag}</span>
@@ -59,6 +60,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
 
       <Name>{coffee.name}</Name>
       <Description>{coffee.description}</Description>
+
       <CardFooter>
         <div>
           <RegularText size="s">R$</RegularText>
@@ -66,6 +68,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
             {formattedPrice}
           </TitleText>
         </div>
+
         <AddCartWrapper>
           <QuantityInput
             onIncrease={handleIncrease}
@@ -73,7 +76,7 @@ export function CoffeeCard({ coffee }: CoffeeProps) {
             quantity={quantity}
           />
           <button onClick={handleAddToCart}>
-            <ShoppingCart size={22} weight="fill" />
+            <ShoppingCart weight="fill" size={22} />
           </button>
         </AddCartWrapper>
       </CardFooter>
